@@ -1,0 +1,87 @@
+const healthArticles = [
+  {
+    id: "1",
+    title: "Understanding Diabetes",
+    category: "Common Diseases",
+    icon: "\u{1FA78}",
+    description: "A comprehensive guide to managing and preventing diabetes.",
+    content: "Diabetes is a chronic condition where the body cannot properly process blood sugar. Type 1 diabetes is an autoimmune condition, while Type 2 is often linked to lifestyle factors. Key management strategies include regular blood sugar monitoring, maintaining a balanced diet low in refined sugars, exercising at least 30 minutes daily, and taking prescribed medications consistently. Early detection through regular checkups can prevent serious complications like neuropathy, retinopathy, and kidney disease."
+  },
+  {
+    id: "2",
+    title: "Heart Disease Prevention",
+    category: "Common Diseases",
+    icon: "\u2764\uFE0F",
+    description: "Learn how to protect your heart through lifestyle changes.",
+    content: "Heart disease remains the leading cause of death worldwide. Prevention starts with managing risk factors: maintain healthy blood pressure (below 120/80), keep cholesterol in check, avoid smoking, exercise regularly, eat a Mediterranean-style diet rich in omega-3 fatty acids, maintain a healthy weight, manage stress, and limit alcohol consumption. Know the warning signs: chest pain, shortness of breath, pain radiating to the arm or jaw, and unexplained fatigue."
+  },
+  {
+    id: "3",
+    title: "Building a Balanced Diet",
+    category: "Healthy Diet",
+    icon: "\u{1F957}",
+    description: "Essential nutrition guidelines for optimal health.",
+    content: "A balanced diet includes all major food groups in proper proportions. Fill half your plate with fruits and vegetables, one quarter with whole grains, and one quarter with lean protein. Include healthy fats from nuts, seeds, and olive oil. Limit processed foods, added sugars, and sodium. Stay hydrated with at least 8 glasses of water daily. Consider your individual needs based on age, activity level, and health conditions."
+  },
+  {
+    id: "4",
+    title: "Exercise for Every Age",
+    category: "Exercise Tips",
+    icon: "\u{1F3C3}",
+    description: "Age-appropriate exercise recommendations for lifelong fitness.",
+    content: "Regular physical activity is crucial at every age. Adults should aim for 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity per week, plus muscle-strengthening exercises twice weekly. Walking, swimming, and cycling are excellent low-impact options. Start slowly if you're new to exercise, and gradually increase intensity. Always warm up before and cool down after workouts. Consult a doctor before starting a new exercise program if you have existing health conditions."
+  },
+  {
+    id: "5",
+    title: "The Science of Sleep",
+    category: "Sleep Habits",
+    icon: "\u{1F634}",
+    description: "Why quality sleep is essential and how to improve it.",
+    content: "Adults need 7-9 hours of quality sleep per night. Poor sleep increases risk of obesity, diabetes, heart disease, and mental health disorders. Improve sleep hygiene by maintaining a consistent schedule, keeping your bedroom cool and dark, avoiding screens 1 hour before bed, limiting caffeine after 2 PM, and creating a relaxing bedtime routine. If you consistently struggle with sleep, consult a healthcare provider to rule out sleep disorders like sleep apnea or insomnia."
+  },
+  {
+    id: "6",
+    title: "Managing Stress Effectively",
+    category: "Stress Management",
+    icon: "\u{1F9D8}",
+    description: "Practical strategies for reducing and managing stress.",
+    content: "Chronic stress can lead to serious health problems including hypertension, weakened immune system, anxiety, and depression. Effective stress management techniques include deep breathing exercises, meditation, progressive muscle relaxation, regular physical activity, maintaining social connections, setting realistic goals, practicing time management, and seeking professional help when needed. Even 10 minutes of daily mindfulness can significantly reduce stress levels."
+  },
+  {
+    id: "7",
+    title: "Understanding Hypertension",
+    category: "Common Diseases",
+    icon: "\u{1F489}",
+    description: "A guide to managing high blood pressure naturally and medically.",
+    content: "Hypertension (high blood pressure) affects nearly half of all adults. Normal blood pressure is below 120/80 mmHg. Management includes reducing sodium intake to under 2,300mg daily, eating potassium-rich foods, exercising regularly, maintaining healthy weight, limiting alcohol, quitting smoking, managing stress, and taking prescribed medications. Regular monitoring is essential as hypertension often has no symptoms but can lead to stroke, heart attack, and kidney damage."
+  },
+  {
+    id: "8",
+    title: "Boosting Your Immune System",
+    category: "Healthy Diet",
+    icon: "\u{1F6E1}\uFE0F",
+    description: "Natural ways to strengthen your body's defense system.",
+    content: "A strong immune system is your best defense against illness. Support it by eating a variety of fruits and vegetables rich in vitamins C and E, getting adequate zinc from nuts and seeds, exercising moderately, sleeping 7-9 hours, managing stress, staying hydrated, avoiding smoking, and limiting alcohol. Probiotics from yogurt and fermented foods support gut health, which is closely linked to immune function. Vitamin D from sunlight or supplements is also crucial."
+  },
+  {
+    id: "9",
+    title: "Mental Health Awareness",
+    category: "Stress Management",
+    icon: "\u{1F9E0}",
+    description: "Recognizing and addressing mental health challenges.",
+    content: "Mental health is as important as physical health. Common conditions include anxiety, depression, and burnout. Warning signs include persistent sadness, loss of interest in activities, changes in sleep or appetite, difficulty concentrating, and withdrawal from social interactions. Seeking help is a sign of strength. Treatment options include therapy, medication, lifestyle changes, and support groups. Practice self-care, maintain social connections, and don't hesitate to reach out to mental health professionals."
+  },
+  {
+    id: "10",
+    title: "Yoga and Flexibility",
+    category: "Exercise Tips",
+    icon: "\u{1F9D8}\u200D\u2640\uFE0F",
+    description: "How yoga improves both physical and mental well-being.",
+    content: "Yoga combines physical postures, breathing techniques, and meditation for holistic health. Regular practice improves flexibility, strength, balance, and posture. It also reduces stress, anxiety, and chronic pain. Beginners can start with basic poses like mountain pose, downward dog, and child's pose. Even 15-20 minutes daily can yield significant benefits. Yoga is suitable for all ages and fitness levels, with modifications available for those with limitations."
+  }
+];
+const articleCategories = [...new Set(healthArticles.map((a) => a.category))];
+export {
+  articleCategories,
+  healthArticles
+};

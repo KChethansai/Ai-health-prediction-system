@@ -1,0 +1,33 @@
+# Render blueprint: Express API + Python ML service.
+# Create the Atlas cluster first, then `render blueprint launch`.
+# Set FRONTEND_URL after the first Vercel deploy, then redeploy.
+services:
+  - type: web
+    name: medipredict-backend
+    runtime: docker
+    rootDir: Backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false # Atlas connection string
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false # e.g. https://medipredict.vercel.app
+      - key: ML_SERVICE_URL
+        sync: false # full origin, e.g. https://medipredict-ml.onrender.com (set after first ML deploy)
+      - key: ML_SERVICE_TOKEN
+        sync: false
+      - key: COOKIE_SAME_SITE
+        value: none
+
+  - type: web
+    name: medipredict-ml
+    runtime: docker
+    rootDir: ml-service
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    # Free tier fits the 15 MB joblibs; expect cold starts after idle.

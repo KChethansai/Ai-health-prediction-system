@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 3% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 3% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 3% 12%;
+
+    --primary: 212 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 3% 12%;
+
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    --accent: 212 100% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 212 100% 40%;
+
+    --radius: 1rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Custom tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(211, 84%, 48%), hsl(211, 84%, 38%));
+    --gradient-hero: linear-gradient(135deg, hsl(211, 84%, 48%) 0%, hsl(240, 60%, 55%) 50%, hsl(168, 71%, 41%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(168, 71%, 41%), hsl(168, 71%, 31%));
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(210, 33%, 98%) 100%);
+    --shadow-card: 0 1px 3px hsl(211 84% 48% / 0.04), 0 4px 24px -4px hsl(211 84% 48% / 0.06);
+    --shadow-card-hover: 0 4px 12px hsl(211 84% 48% / 0.08), 0 8px 32px -4px hsl(211 84% 48% / 0.12);
+    --shadow-glow: 0 0 40px hsl(211 84% 48% / 0.15);
+    --glass-bg: hsl(0 0% 100% / 0.75);
+    --glass-border: hsl(214 32% 91% / 0.8);
+  }
+
+  .dark {
+    --background: 0 0% 2%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 348 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 348 100% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 27% 84%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(211, 84%, 55%), hsl(211, 84%, 42%));
+    --gradient-hero: linear-gradient(135deg, hsl(211, 84%, 55%) 0%, hsl(240, 60%, 50%) 50%, hsl(168, 71%, 45%) 100%);
+    --shadow-card: 0 1px 3px hsl(0 0% 0% / 0.15), 0 4px 24px -4px hsl(0 0% 0% / 0.25);
+    --shadow-card-hover: 0 4px 12px hsl(0 0% 0% / 0.2), 0 8px 32px -4px hsl(211 84% 55% / 0.15);
+    --shadow-glow: 0 0 40px hsl(211 84% 55% / 0.2);
+    --glass-bg: hsl(222 47% 9% / 0.8);
+    --glass-border: hsl(217 33% 17% / 0.8);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  /* Improved text rendering */
+  p, li, span {
+    line-height: 1.65;
+  }
+
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .glass-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Non-hoverable glass card variant for dashboard sections */
+  .glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  .gradient-text {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-primary-bg {
+    background: var(--gradient-primary);
+  }
+
+  .section-padding {
+    @apply px-4 py-16 md:px-8 lg:px-16 lg:py-24;
+  }
+
+  /* Consistent page header */
+  .page-header {
+    @apply text-center mb-10 md:mb-14;
+  }
+
+  .page-header h1 {
+    @apply font-display text-3xl md:text-4xl font-bold mb-3 tracking-tight;
+  }
+
+  .page-header p {
+    @apply text-muted-foreground text-sm md:text-base max-w-xl mx-auto leading-relaxed;
+  }
+
+  /* Consistent empty state */
+  .empty-state {
+    @apply text-center py-16 md:py-20;
+  }
+
+  .empty-state-icon {
+    @apply w-16 h-16 mx-auto mb-5 text-muted-foreground/20;
+  }
+
+  .empty-state p {
+    @apply text-base text-muted-foreground mb-1;
+  }
+
+  .empty-state .empty-state-hint {
+    @apply text-sm text-muted-foreground/60 mt-1;
+  }
+
+  /* Button polish */
+  .btn-primary {
+    @apply gradient-primary-bg text-primary-foreground shadow-lg;
+    box-shadow: 0 4px 14px -2px hsl(211 84% 48% / 0.3);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px -2px hsl(211 84% 48% / 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0);
+  }
+
+  /* Chart container - ensures charts don't touch card edges */
+  .chart-container {
+    @apply px-1 py-2;
+  }
+}
+
+/* Leaflet z-index containment */
+.leaflet-container {
+  z-index: 0;
+}
+
+/* Leaflet dark mode overrides */
+.dark .leaflet-container {
+  background: hsl(222, 47%, 9%);
+}
+
+.dark .leaflet-tile-pane {
+  filter: brightness(0.75) contrast(1.1) saturate(0.85);
+}
+
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+  background: hsl(222, 47%, 12%);
+  color: hsl(210, 40%, 98%);
+}
+
+.dark .leaflet-control-zoom a {
+  background: hsl(222, 47%, 12%) !important;
+  color: hsl(210, 40%, 98%) !important;
+  border-color: hsl(217, 33%, 17%) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.15);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.3);
+}
+
+/* Focus ring polish */
+:focus-visible {
+  outline: 2px solid hsl(var(--ring) / 0.5);
+  outline-offset: 2px;
+  border-radius: var(--radius);
+}
+
+/* Selection color */
+::selection {
+  background: hsl(var(--primary) / 0.15);
+  color: hsl(var(--foreground));
+}
+
+/* Ensure minimum touch targets on mobile */
+@media (pointer: coarse) {
+  button, [role="button"], a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Exceptions for small icon buttons */
+  button[class*="h-7"], button[class*="h-8"], button[class*="w-7"], button[class*="w-8"] {
+    min-height: 36px;
+    min-width: 36px;
+  }
+}
